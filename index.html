@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>States and Districts</h2>
+        <div class="f-group">
+            <label for="">Country</label>
+            <select name="slct1" id="slct1" onchange="populate(this.id,'slct2')">
+                <option value="">Select State</option>
+                <option value="uttar">Uttar Pradesh</option>
+                <option value="punjab">Punjab</option>
+                <option value="andhra">Andhra Pradesh</option>
+                <option value="maharashtra">Maharsahtra</option>
+                <option value="goa">Goa</option>
+                <option value="gujarat">Gujarat</option>
+            </select>
+        </div>
+
+        <div class="f-group">
+            <label for="">District</label>
+            <select name="slct2" id="slct2"></select>
+        </div>
+    </div>
+
+    <script>
+
+        function populate(s1,s2)
+        {
+            var s1 = document.getElementById(s1);
+            var s2 = document.getElementById(s2);
+
+            s2.innerHTML = "";
+
+            if(s1.value == "uttar")
+            {
+                var optionArray = ['lucknow|Lucknow','unnao|Unnao','meerut|Meerut','allahbad|Allahbad','agra|Agra','aligarh|Aligarh','amethi|Amethi','amorah|Amorah','etawah|Etawah','hathras|Hathras','kanpur|Kanpur','mau|Mau','varanasi|Varanasi'];
+            }
+            else if(s1.value == 'punjab')
+            {
+                var optionArray = ['patiala|Patiala','hoshiarpur|Hoshiarpur','kapurthala|Kapurthala','bathinda|Bathinda','amritsar|Amritsar'];
+            }
+
+            else if(s1.value == 'andhra')
+            {
+                var optionArray = ['alluri sitaram raju|Alluri Sitaram Raju','anakapalle|Anakapalle','ananthpuramu|Ananthpuramu','annamayya|Annamayya','bapatla|Bapatla','chittoor|Chittoor','eluru|Eluru','guntur|Guntur','krishna|Krishna','kurnool|Kurnool','nandyal|Nandyal','ntr|NTR'];
+            }
+
+            else if(s1.value == 'maharashtra')
+            {
+                var optionArray = ['ahmednagar|Ahmednagar','akola|Akola','amravati|Amravati','beed|Beed','buldhana|Buldhana','chandrapur|Chandrapur','dhule|Dhule','gondia|Gondia','hingoli|Hingoli','jalna|Jalna','kolhapur|Kolhapur','latur|Latur','mumbai|Mumbai','nagpur|Nagpur','nashik|Nashik','palghar|Palghar','pune|Pune','satara|Satara','thane|Thane'];
+            }
+
+            else if(s1.value == 'goa')
+            {
+                var optionArray = ['north|North Goa','south|South Goa'];
+            }
+
+            else if(s1.value == 'gujarat')
+            {
+                var optionArray = ['ahmedabad|Ahemdabad','amreli|Amreli','anand|Anand','arvalli|Arvalli','bharuch|Bharuch','bhavnagar|Bhavnagar','botad|Botad','gandhinagar|Gandhinagar','junagadh|Junagadh','kachchh|Kachchh','rajkot|Rajkot','vadodra|Vadodra','surat|Surat'];
+            }
+
+
+
+
+             
+            for(var option in optionArray)
+            {
+                var pair = optionArray[option].split("|");
+                var newoption = document.createElement("option");
+
+                newoption.value = pair[0];
+                newoption.innerHTML=pair[1];
+                s2.options.add(newoption);
+            }
+
+        }
+
+    </script>
+</body>
+</html>
